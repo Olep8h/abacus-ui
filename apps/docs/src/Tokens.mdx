@@ -1,0 +1,53 @@
+import { Meta } from "@storybook/addon-docs/blocks"
+import { ColorTokens, PrimitiveRamps, TypeScale, SizeScale } from "./tokens-page"
+
+<Meta title="Tokens" />
+
+# Tokens
+
+Source: Figma Community file **Simple Design System** by Figma. The variables export is committed
+untouched as `packages/ui/src/tokens/tokens.json`; everything below is rendered from the file the
+build script generates from it, so this page cannot drift from `tokens.css`.
+
+Pipeline: `tokens.json` → `pnpm build:tokens` → `tokens.css` (`--sds-*` custom properties, light on
+`:root`, dark on `[data-theme="dark"]`) → `theme.css` (Tailwind `@theme`, semantic names only).
+
+## Semantic colours
+
+These are the only colours Tailwind utilities can reach: `bg-brand`, `text-fg-secondary`,
+`border-line-danger`. Each swatch is shown in both themes.
+
+<ColorTokens />
+
+## Primitive ramps
+
+The ramps the semantic tokens alias. Available as CSS variables for charts and docs, deliberately
+_not_ exposed as utilities, so a component cannot skip the semantic layer.
+
+<PrimitiveRamps />
+
+## Type scale
+
+`scale-01` … `scale-10` map to Tailwind's `text-xs` … `text-6xl`.
+
+<TypeScale />
+
+## Spacing
+
+SDS keeps its own step names; `200` is 8px. Utilities use the same names: `p-200`, `gap-400`.
+
+<SizeScale group="space" />
+
+## Radius
+
+<SizeScale group="radius" />
+
+## Stroke
+
+<SizeScale group="stroke" />
+
+## Icon sizes
+
+Also used as fixed control heights: `h-control-sm` (24) / `h-control-md` (32) / `h-control-lg` (40).
+
+<SizeScale group="icon" />

@@ -1,0 +1,303 @@
+/* Hand-curated Tailwind layer over the generated tokens: only semantic names, every value a var(--sds-*). */
+@import "./tokens.css";
+
+/* Accessibility overrides: SDS pairs that fail WCAG AA, documented in README → Accessibility. */
+:root,
+[data-theme="light"] {
+  --abacus-danger-bg: var(--sds-color-background-danger-hover);
+  --abacus-danger-bg-hover: var(--sds-color-border-danger-default);
+  --abacus-on-positive: var(--sds-color-text-default-default);
+}
+[data-theme="dark"] {
+  --abacus-danger-bg: var(--sds-color-background-danger-default);
+  --abacus-danger-bg-hover: var(--sds-color-background-danger-hover);
+  --abacus-on-positive: var(--sds-color-text-positive-on-positive);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --abacus-danger-bg: var(--sds-color-background-danger-default);
+    --abacus-danger-bg-hover: var(--sds-color-background-danger-hover);
+    --abacus-on-positive: var(--sds-color-text-positive-on-positive);
+  }
+}
+
+@theme {
+  --color-*: initial;
+  --spacing: initial;
+  --spacing-*: initial;
+  --radius-*: initial;
+  --text-*: initial;
+  --font-*: initial;
+  --font-weight-*: initial;
+  --shadow-*: initial;
+  --inset-shadow-*: initial;
+  --blur-*: initial;
+}
+
+@theme inline {
+  /* ---------- Surfaces ---------- */
+  --color-surface: var(--sds-color-background-default-default);
+  --color-surface-hover: var(--sds-color-background-default-default-hover);
+  --color-surface-secondary: var(--sds-color-background-default-secondary);
+  --color-surface-secondary-hover: var(--sds-color-background-default-secondary-hover);
+  --color-surface-tertiary: var(--sds-color-background-default-tertiary);
+  --color-surface-tertiary-hover: var(--sds-color-background-default-tertiary-hover);
+  --color-overlay: var(--sds-color-background-utilities-overlay);
+  --color-scrim: var(--sds-color-background-utilities-scrim);
+  --color-blanket: var(--sds-color-background-utilities-blanket);
+  --color-disabled: var(--sds-color-background-disabled-default);
+
+  /* ---------- Intent backgrounds: brand / neutral / positive / warning / danger ---------- */
+  --color-brand: var(--sds-color-background-brand-default);
+  --color-brand-hover: var(--sds-color-background-brand-hover);
+  --color-brand-secondary: var(--sds-color-background-brand-secondary);
+  --color-brand-secondary-hover: var(--sds-color-background-brand-secondary-hover);
+  --color-brand-tertiary: var(--sds-color-background-brand-tertiary);
+  --color-brand-tertiary-hover: var(--sds-color-background-brand-tertiary-hover);
+
+  --color-neutral: var(--sds-color-background-neutral-default);
+  --color-neutral-hover: var(--sds-color-background-neutral-hover);
+  --color-neutral-secondary: var(--sds-color-background-neutral-secondary);
+  --color-neutral-secondary-hover: var(--sds-color-background-neutral-secondary-hover);
+  --color-neutral-tertiary: var(--sds-color-background-neutral-tertiary);
+  --color-neutral-tertiary-hover: var(--sds-color-background-neutral-tertiary-hover);
+
+  --color-positive: var(--sds-color-background-positive-default);
+  --color-positive-hover: var(--sds-color-background-positive-hover);
+  --color-positive-secondary: var(--sds-color-background-positive-secondary);
+  --color-positive-secondary-hover: var(--sds-color-background-positive-secondary-hover);
+  --color-positive-tertiary: var(--sds-color-background-positive-tertiary);
+  --color-positive-tertiary-hover: var(--sds-color-background-positive-tertiary-hover);
+
+  --color-warning: var(--sds-color-background-warning-default);
+  --color-warning-hover: var(--sds-color-background-warning-hover);
+  --color-warning-secondary: var(--sds-color-background-warning-secondary);
+  --color-warning-secondary-hover: var(--sds-color-background-warning-secondary-hover);
+  --color-warning-tertiary: var(--sds-color-background-warning-tertiary);
+  --color-warning-tertiary-hover: var(--sds-color-background-warning-tertiary-hover);
+
+  --color-danger: var(--abacus-danger-bg);
+  --color-danger-hover: var(--abacus-danger-bg-hover);
+  --color-danger-secondary: var(--sds-color-background-danger-secondary);
+  --color-danger-secondary-hover: var(--sds-color-background-danger-secondary-hover);
+  --color-danger-tertiary: var(--sds-color-background-danger-tertiary);
+  --color-danger-tertiary-hover: var(--sds-color-background-danger-tertiary-hover);
+
+  /* ---------- Text (fg) ---------- */
+  --color-fg: var(--sds-color-text-default-default);
+  --color-fg-secondary: var(--sds-color-text-default-secondary);
+  --color-fg-tertiary: var(--sds-color-text-default-tertiary);
+  --color-fg-disabled: var(--sds-color-text-disabled-default);
+  --color-fg-on-disabled: var(--sds-color-text-disabled-on-disabled);
+
+  --color-fg-brand: var(--sds-color-text-brand-default);
+  --color-fg-brand-secondary: var(--sds-color-text-brand-secondary);
+  --color-fg-brand-tertiary: var(--sds-color-text-brand-tertiary);
+  --color-fg-on-brand: var(--sds-color-text-brand-on-brand);
+  --color-fg-on-brand-secondary: var(--sds-color-text-brand-on-brand-secondary);
+  --color-fg-on-brand-tertiary: var(--sds-color-text-brand-on-brand-tertiary);
+
+  --color-fg-neutral: var(--sds-color-text-neutral-default);
+  --color-fg-neutral-secondary: var(--sds-color-text-neutral-secondary);
+  --color-fg-neutral-tertiary: var(--sds-color-text-neutral-tertiary);
+  --color-fg-on-neutral: var(--sds-color-text-neutral-on-neutral);
+  --color-fg-on-neutral-secondary: var(--sds-color-text-neutral-on-neutral-secondary);
+  --color-fg-on-neutral-tertiary: var(--sds-color-text-neutral-on-neutral-tertiary);
+
+  --color-fg-positive: var(--sds-color-text-positive-default);
+  --color-fg-positive-secondary: var(--sds-color-text-positive-secondary);
+  --color-fg-positive-tertiary: var(--sds-color-text-positive-tertiary);
+  --color-fg-on-positive: var(--abacus-on-positive);
+  --color-fg-on-positive-secondary: var(--sds-color-text-positive-on-positive-secondary);
+  --color-fg-on-positive-tertiary: var(--sds-color-text-positive-on-positive-tertiary);
+
+  --color-fg-warning: var(--sds-color-text-warning-default);
+  --color-fg-warning-secondary: var(--sds-color-text-warning-secondary);
+  --color-fg-warning-tertiary: var(--sds-color-text-warning-tertiary);
+  --color-fg-on-warning: var(--sds-color-text-warning-on-warning);
+  --color-fg-on-warning-secondary: var(--sds-color-text-warning-on-warning-secondary);
+  --color-fg-on-warning-tertiary: var(--sds-color-text-warning-on-warning-tertiary);
+
+  --color-fg-danger: var(--sds-color-text-danger-default);
+  --color-fg-danger-secondary: var(--sds-color-text-danger-secondary);
+  --color-fg-danger-tertiary: var(--sds-color-text-danger-tertiary);
+  --color-fg-on-danger: var(--sds-color-text-danger-on-danger);
+  --color-fg-on-danger-secondary: var(--sds-color-text-danger-on-danger-secondary);
+  --color-fg-on-danger-tertiary: var(--sds-color-text-danger-on-danger-tertiary);
+
+  --color-fg-on-overlay: var(--sds-color-text-utilities-text-on-overlay);
+
+  /* ---------- Borders (line) ---------- */
+  --color-line: var(--sds-color-border-default-default);
+  --color-line-control: var(--sds-color-border-default-secondary);
+  --color-line-secondary: var(--sds-color-border-default-secondary);
+  --color-line-tertiary: var(--sds-color-border-default-tertiary);
+  --color-line-disabled: var(--sds-color-border-disabled-default);
+  --color-line-brand: var(--sds-color-border-brand-default);
+  --color-line-brand-secondary: var(--sds-color-border-brand-secondary);
+  --color-line-brand-tertiary: var(--sds-color-border-brand-tertiary);
+  --color-line-neutral: var(--sds-color-border-neutral-default);
+  --color-line-neutral-secondary: var(--sds-color-border-neutral-secondary);
+  --color-line-neutral-tertiary: var(--sds-color-border-neutral-tertiary);
+  --color-line-positive: var(--sds-color-border-positive-default);
+  --color-line-positive-secondary: var(--sds-color-border-positive-secondary);
+  --color-line-positive-tertiary: var(--sds-color-border-positive-tertiary);
+  --color-line-warning: var(--sds-color-border-warning-default);
+  --color-line-warning-secondary: var(--sds-color-border-warning-secondary);
+  --color-line-warning-tertiary: var(--sds-color-border-warning-tertiary);
+  --color-line-danger: var(--sds-color-border-danger-default);
+  --color-line-danger-secondary: var(--sds-color-border-danger-secondary);
+  --color-line-danger-tertiary: var(--sds-color-border-danger-tertiary);
+
+  /* ---------- Icons ---------- */
+  --color-icon: var(--sds-color-icon-default-default);
+  --color-icon-secondary: var(--sds-color-icon-default-secondary);
+  --color-icon-tertiary: var(--sds-color-icon-default-tertiary);
+  --color-icon-disabled: var(--sds-color-icon-disabled-default);
+  --color-icon-on-disabled: var(--sds-color-icon-disabled-on-disabled);
+  --color-icon-brand: var(--sds-color-icon-brand-default);
+  --color-icon-on-brand: var(--sds-color-icon-brand-on-brand);
+  --color-icon-neutral: var(--sds-color-icon-neutral-default);
+  --color-icon-on-neutral: var(--sds-color-icon-neutral-on-neutral);
+  --color-icon-positive: var(--sds-color-icon-positive-default);
+  --color-icon-on-positive: var(--sds-color-icon-positive-on-positive);
+  --color-icon-warning: var(--sds-color-icon-warning-default);
+  --color-icon-on-warning: var(--sds-color-icon-warning-on-warning);
+  --color-icon-danger: var(--sds-color-icon-danger-default);
+  --color-icon-on-danger: var(--sds-color-icon-danger-on-danger);
+
+  /* ---------- Chart series (semantic, colour-blind-checked order) ---------- */
+  --color-chart-1: var(--sds-color-background-brand-default);
+  --color-chart-2: var(--sds-color-background-positive-default);
+  --color-chart-3: var(--sds-color-background-warning-default);
+  --color-chart-4: var(--sds-color-background-danger-default);
+  --color-chart-5: var(--sds-color-background-neutral-default);
+
+  /* ---------- Typography ---------- */
+  --font-sans: var(--sds-typography-family-sans);
+  --font-serif: var(--sds-typography-family-serif);
+  --font-mono: var(--sds-typography-family-mono);
+
+  --font-weight-normal: var(--sds-typography-weight-regular);
+  --font-weight-medium: var(--sds-typography-weight-medium);
+  --font-weight-semibold: var(--sds-typography-weight-semibold);
+  --font-weight-bold: var(--sds-typography-weight-bold);
+
+  --text-xs: var(--sds-typography-scale-01);
+  --text-xs--line-height: 1.4;
+  --text-sm: var(--sds-typography-scale-02);
+  --text-sm--line-height: 1.4;
+  --text-base: var(--sds-typography-scale-03);
+  --text-base--line-height: 1.5;
+  --text-lg: var(--sds-typography-scale-04);
+  --text-lg--line-height: 1.4;
+  --text-xl: var(--sds-typography-scale-05);
+  --text-xl--line-height: 1.2;
+  --text-2xl: var(--sds-typography-scale-06);
+  --text-2xl--line-height: 1.2;
+  --text-3xl: var(--sds-typography-scale-07);
+  --text-3xl--line-height: 1.2;
+  --text-4xl: var(--sds-typography-scale-08);
+  --text-4xl--line-height: 1.1;
+  --text-5xl: var(--sds-typography-scale-09);
+  --text-5xl--line-height: 1.1;
+  --text-6xl: var(--sds-typography-scale-10);
+  --text-6xl--line-height: 1;
+
+  /* ---------- Spacing: SDS keeps its own step names (200 = 8px). `p-200`, `gap-400`. ---------- */
+  --spacing-0: var(--sds-size-space-0);
+  --spacing-050: var(--sds-size-space-050);
+  --spacing-100: var(--sds-size-space-100);
+  --spacing-150: var(--sds-size-space-150);
+  --spacing-200: var(--sds-size-space-200);
+  --spacing-300: var(--sds-size-space-300);
+  --spacing-400: var(--sds-size-space-400);
+  --spacing-600: var(--sds-size-space-600);
+  --spacing-800: var(--sds-size-space-800);
+  --spacing-1200: var(--sds-size-space-1200);
+  --spacing-1600: var(--sds-size-space-1600);
+  --spacing-2400: var(--sds-size-space-2400);
+  --spacing-4000: var(--sds-size-space-4000);
+  --spacing-control-sm: var(--sds-size-icon-small);
+  --spacing-control-md: var(--sds-size-icon-medium);
+  --spacing-control-lg: var(--sds-size-icon-large);
+
+  /* ---------- Radii ---------- */
+  --radius-sm: var(--sds-size-radius-100);
+  --radius-md: var(--sds-size-radius-200);
+  --radius-lg: var(--sds-size-radius-400);
+  --radius-full: var(--sds-size-radius-full);
+
+  /* ---------- Blur (SDS effect: backdrop-filter-blur-overlay) ---------- */
+  --blur-sm: var(--sds-size-blur-100);
+
+  /* ---------- Shadows: SDS effect styles drop-shadow-100 / 300 / 400, transcribed ---------- */
+  --shadow-sm: var(--sds-size-depth-0) var(--sds-size-depth-025) var(--sds-size-depth-100)
+    var(--sds-size-depth-0) var(--sds-color-black-100);
+  --shadow-md:
+    var(--sds-size-depth-0) var(--sds-size-depth-100) var(--sds-size-depth-100)
+      var(--sds-size-depth-negative-025) var(--sds-color-black-100),
+    var(--sds-size-depth-0) var(--sds-size-depth-100) var(--sds-size-depth-100)
+      var(--sds-size-depth-negative-025) var(--sds-color-black-200);
+  --shadow-lg:
+    var(--sds-size-depth-0) var(--sds-size-depth-100) var(--sds-size-depth-100)
+      var(--sds-size-depth-negative-100) var(--sds-color-black-100),
+    var(--sds-size-depth-0) var(--sds-size-depth-400) var(--sds-size-depth-800)
+      var(--sds-size-depth-negative-100) var(--sds-color-black-200);
+}
+
+@theme {
+  --animate-pop-in: pop-in 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  @keyframes pop-in {
+    from {
+      opacity: 0;
+      transform: translateY(var(--sds-size-space-100)) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+}
+
+@custom-variant dark {
+  &:where([data-theme="dark"], [data-theme="dark"] *) {
+    @slot;
+  }
+  @media (prefers-color-scheme: dark) {
+    &:where(:not([data-theme="light"]):not([data-theme="light"] *)) {
+      @slot;
+    }
+  }
+}
+
+@utility focus-ring {
+  outline: var(--sds-size-stroke-focus-ring) solid var(--sds-color-border-brand-default);
+  outline-offset: var(--sds-size-stroke-focus-ring);
+}
+
+@layer base {
+  :root,
+  [data-theme="light"] {
+    color-scheme: light;
+  }
+  [data-theme="dark"] {
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+    }
+  }
+  html {
+    font-family: var(--sds-typography-family-sans);
+    background-color: var(--sds-color-background-default-default);
+    color: var(--sds-color-text-default-default);
+    -webkit-font-smoothing: antialiased;
+  }
+  *,
+  ::before,
+  ::after {
+    border-color: var(--sds-color-border-default-default);
+  }
+}

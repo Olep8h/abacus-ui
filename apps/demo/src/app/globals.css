@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@import "@abacus/ui/theme.css";
+
+@source "../../../../packages/ui/src";
+
+:root {
+  --sds-typography-family-sans: var(--font-inter), "Inter", sans-serif;
+  --sds-typography-family-mono: var(--font-roboto-mono), "Roboto Mono", monospace;
+}

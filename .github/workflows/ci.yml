@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Tokens are reproducible
+        run: pnpm check:tokens
+      - name: No arbitrary Tailwind values
+        run: pnpm check:arbitrary
+      - name: Contrast
+        run: pnpm check:contrast
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm test
+      - name: Build Storybook
+        run: pnpm --filter @abacus/docs build
+      - name: Build demo
+        run: pnpm --filter @abacus/demo build

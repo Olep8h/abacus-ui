@@ -1,0 +1,42 @@
+import {
+  Canvas,
+  Controls,
+  Description,
+  Meta,
+  Primary,
+  Stories,
+  Title,
+} from "@storybook/addon-docs/blocks"
+
+import * as StatCardStories from "./stat-card.stories"
+
+<Meta of={StatCardStories} />
+
+<Title />
+
+<Description of={StatCardStories.default.component} />
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Motion and meaning
+
+- The count-up runs once, on mount, and is skipped under `prefers-reduced-motion`. Later value
+  changes (a live feed) render instantly, so the card never lags behind the data it shows.
+- The sparkline is drawn with two `d3-scale` linear scales and a hand-built SVG path. It is
+  decorative: the number, the signed delta and the "Up/Down" screen-reader prefix carry the meaning.
+
+<Canvas of={StatCardStories.Matrix} />
+
+## When not to use it
+
+- **A number that needs context to be true.** If "18,120" is meaningless without a currency, a
+  period and a comparison, pass all three; a bare figure reads as decoration.
+- **Live-ticking values every frame.** Update at a rate a person can read (a few times a second
+  at most) and coalesce updates upstream; the card does not throttle.
+- **More than five in a row.** Past that, it is a table.
+
+<Stories includePrimary={false} />

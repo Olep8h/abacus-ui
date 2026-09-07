@@ -1,0 +1,43 @@
+import {
+  Canvas,
+  Controls,
+  Description,
+  Meta,
+  Primary,
+  Stories,
+  Title,
+} from "@storybook/addon-docs/blocks"
+
+import * as TooltipStories from "./tooltip.stories"
+
+<Meta of={TooltipStories} />
+
+<Title />
+
+<Description of={TooltipStories.default.component} />
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Hover, focus, touch
+
+- **Pointer:** opens after 300 ms, closes on leave. Moving between two triggers skips the delay
+  when they share a `TooltipProvider`.
+- **Keyboard:** opens on focus, closes on blur or `Escape`.
+- **Touch:** there is no hover, so a tap opens it and a tap elsewhere closes it. The tap does not
+  activate the trigger; that is the trade-off, the same one the native `title` attribute makes.
+- **Screen readers:** while open, the content is linked with `aria-describedby`. It is never the
+  trigger's name.
+
+## When not to use it
+
+- **To label an icon button.** Use `aria-label` for the name; the tooltip may repeat it.
+- **For anything the user must read.** Tooltips are hard to reach on touch and disappear on move.
+  Essential text goes next to the control.
+- **With interactive content.** Links or buttons inside a tooltip cannot be reached. That is a popover.
+- **On disabled controls.** Disabled elements do not receive events, so nothing opens it.
+
+<Stories includePrimary={false} />

@@ -1,0 +1,56 @@
+{
+  "name": "@abacus/ui",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Abacus UI: a small, token-driven component library (Tailwind v4 + Radix + cva).",
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "exports": {
+    ".": "./src/index.ts",
+    "./theme.css": "./src/tokens/theme.css",
+    "./tokens.json": "./src/tokens/tokens.json",
+    "./tokens": "./src/tokens/tokens.generated.ts"
+  },
+  "scripts": {
+    "build:tokens": "node scripts/build-tokens.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "dependencies": {
+    "@tanstack/react-table": "^9.2.4",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "d3-scale": "^4.0.2",
+    "lucide-react": "^1.42.0",
+    "motion": "^13.2.0",
+    "radix-ui": "^1.6.7",
+    "recharts": "^3.10.1",
+    "tailwind-merge": "^3.6.0",
+    "@tanstack/table-core": "^9.2.4"
+  },
+  "devDependencies": {
+    "@storybook/react-vite": "^10.6.0",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
+    "@types/d3-scale": "^4.0.9",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "jsdom": "^26.1.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "storybook": "^10.6.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.11",
+    "@types/node": "^24.0.0",
+    "@storybook/addon-docs": "^10.6.0"
+  }
+}

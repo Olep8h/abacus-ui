@@ -1,0 +1,38 @@
+import { Meta } from "@storybook/addon-docs/blocks"
+
+<Meta title="Introduction" />
+
+# Abacus UI
+
+A small, token-driven component library built as a work sample for a frontend contract
+application. It exists to show three things in one place:
+
+1. **Design tokens mapped from a Figma file**, not invented. The palette, type scale, spacing and
+   radii come from Figma's public _Simple Design System_ and land in Tailwind v4 through a
+   generated `tokens.css`. Nothing in the components is a literal colour or length.
+2. **Documented, prop-typed components.** Every prop table on these pages is generated from the
+   TypeScript types and the TSDoc next to them. If the docs drift from the code, the build is wrong.
+3. **Variant and state matrices**, rendered on one page per component, in both themes.
+
+## Where to look
+
+- **Tokens** — every custom property the library exposes, rendered from the same generated data
+  the CSS is built from.
+- **Primitives → Button → Matrix** — the full variant × size × state × content grid.
+- **Composed → DataTable** — sorting, column visibility, empty / loading / error states.
+
+## Consuming the library
+
+```css
+/* your app's global stylesheet */
+@import "tailwindcss";
+@import "@abacus/ui/theme.css";
+@source "../node_modules/@abacus/ui/src";
+```
+
+```tsx
+import { Button, Dialog, DataTable } from "@abacus/ui"
+```
+
+Theme is a single attribute: `<html data-theme="dark">`. Leave it unset and the system
+preference applies.

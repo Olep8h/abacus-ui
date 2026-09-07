@@ -1,0 +1,51 @@
+import {
+  Canvas,
+  Controls,
+  Description,
+  Meta,
+  Primary,
+  Stories,
+  Title,
+} from "@storybook/addon-docs/blocks"
+
+import * as DataTableStories from "./data-table.stories"
+
+<Meta of={DataTableStories} />
+
+<Title />
+
+<Description of={DataTableStories.default.component} />
+
+<Primary />
+
+## Props
+
+Columns are built with `createDataTableColumns<Row>()`, TanStack Table's typed column helper bound
+to this table's feature set. `meta.align: "end"` right-aligns a numeric column.
+
+<Controls />
+
+## States
+
+Loading, empty and error are props, not conditions the consumer renders around the table. The
+header stays put in all three, so the page does not reflow when data arrives.
+
+<Canvas of={DataTableStories.Loading} />
+<Canvas of={DataTableStories.Empty} />
+<Canvas of={DataTableStories.Error} />
+
+## Small screens
+
+<Canvas of={DataTableStories.SmallScreen} />
+
+## When not to use it
+
+- **Tens of thousands of rows without a server.** Sorting and paging happen in memory here.
+  Past a few thousand rows, sort on the server and virtualise.
+- **Row editing.** This is a read-and-sort surface. Inline editing changes the keyboard contract
+  (grid navigation) and belongs to a different component.
+- **Tree or grouped data.** Expandable rows are not registered; add the feature deliberately
+  rather than nesting tables.
+- **As a layout tool.** If the columns are not data, it is a list.
+
+<Stories includePrimary={false} />

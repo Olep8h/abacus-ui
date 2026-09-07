@@ -1,0 +1,40 @@
+import {
+  Canvas,
+  Controls,
+  Description,
+  Meta,
+  Primary,
+  Stories,
+  Title,
+} from "@storybook/addon-docs/blocks"
+
+import * as ChartStories from "./time-series-chart.stories"
+
+<Meta of={ChartStories} />
+
+<Title />
+
+<Description of={ChartStories.default.component} />
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Colour and accessibility
+
+Series colours are the semantic chart tokens (`brand`, `positive`, `warning`, `danger`, `neutral`),
+referenced as CSS variables because Recharts paints SVG through `stroke` and `fill` props. They
+flip with the theme like everything else. The SVG itself is `aria-hidden`; the required `summary`
+prop is what a screen reader gets, and Recharts' accessibility layer makes the tooltip keyboard
+reachable.
+
+## When not to use it
+
+- **Categories, not time.** A bar chart compares categories; this one shows change over time.
+- **More than three series.** Overlapping areas become unreadable; use lines, or small multiples.
+- **Values with very different scales on one axis.** Split them, or the small one flattens to zero.
+- **Without a summary.** If you cannot write the sentence, the chart has nothing to say.
+
+<Stories includePrimary={false} />

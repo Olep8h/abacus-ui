@@ -1,0 +1,39 @@
+{
+  "name": "abacus-ui-workspace",
+  "private": true,
+  "packageManager": "pnpm@10.33.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @abacus/demo dev",
+    "storybook": "pnpm --filter @abacus/docs storybook",
+    "build": "pnpm -r build",
+    "build:tokens": "pnpm --filter @abacus/ui build:tokens",
+    "check:tokens": "pnpm build:tokens && git diff --exit-code -- packages/ui/src/tokens/",
+    "check:arbitrary": "node scripts/check-arbitrary-values.mjs",
+    "lint": "eslint .",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm --filter @abacus/ui test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "perf:trace": "node scripts/perf-trace.mjs",
+    "check:contrast": "node scripts/check-contrast.mjs",
+    "check:a11y": "node scripts/a11y-check.mjs",
+    "verify": "pnpm check:tokens && pnpm check:arbitrary && pnpm lint && pnpm typecheck && pnpm test && pnpm build"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "eslint": "^9.39.0",
+    "eslint-config-next": "16.3.4",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-storybook": "^10.6.0",
+    "prettier": "^3.9.6",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.69.0",
+    "puppeteer-core": "^24.0.0",
+    "axe-core": "^4.10.0"
+  }
+}

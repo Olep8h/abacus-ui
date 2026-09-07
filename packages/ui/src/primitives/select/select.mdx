@@ -1,0 +1,47 @@
+import {
+  Canvas,
+  Controls,
+  Description,
+  Meta,
+  Primary,
+  Stories,
+  Title,
+} from "@storybook/addon-docs/blocks"
+
+import * as SelectStories from "./select.stories"
+
+<Meta of={SelectStories} />
+
+<Title />
+
+<Description of={SelectStories.default.component} />
+
+<Primary />
+
+## Keyboard
+
+| Key                     | Action                                     |
+| ----------------------- | ------------------------------------------ |
+| `Space` / `Enter` / `↓` | Open; highlight follows the selected value |
+| `↑` `↓` `Home` `End`    | Move highlight                             |
+| Type letters            | Jump to the first matching option          |
+| `Enter` / `Space`       | Select the highlighted option and close    |
+| `Escape`                | Close without changing the value           |
+
+Focus returns to the trigger on close. This is verified in `select.test.tsx`.
+
+## Props
+
+`SelectTrigger` carries the sizing and validity props; `Select` takes Radix's root props
+(`value`, `defaultValue`, `onValueChange`, `disabled`, `required`, `name`).
+
+<Controls />
+
+## When not to use it
+
+- **Fewer than four options.** Radio buttons show every choice at once and need no opening.
+- **More than ~30 options, or options the user must search.** That is a combobox with filtering.
+- **Multiple selection.** This is single-choice by contract; a multi-select is a different control.
+- **Free text.** If "Other…" is an option, it is an input, not a select.
+
+<Stories includePrimary={false} />

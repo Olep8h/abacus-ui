@@ -1,0 +1,41 @@
+import {
+  Canvas,
+  Controls,
+  Description,
+  Meta,
+  Primary,
+  Stories,
+  Title,
+} from "@storybook/addon-docs/blocks"
+
+import * as BadgeStories from "./badge.stories"
+
+<Meta of={BadgeStories} />
+
+<Title />
+
+<Description of={BadgeStories.default.component} />
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Colour is not the only channel
+
+Each intent has its own glyph shape (check, triangle, exclamation, minus, info). Two people
+in a hundred cannot tell the positive and danger hues apart; nobody misreads a triangle for a
+circle. Keep the default icon on status badges.
+
+<Canvas of={BadgeStories.Matrix} />
+
+## When not to use it
+
+- **Anything clickable.** A badge is static. A removable filter chip or a toggle is a `Button`
+  (or a checkbox styled like one), with the keyboard behaviour that implies.
+- **Counts that update live.** Announce those with an `aria-live` region; a badge re-rendering
+  silently is invisible to a screen reader.
+- **Long text.** Badges do not wrap. If the label needs a sentence, it is not a status.
+
+<Stories includePrimary={false} />

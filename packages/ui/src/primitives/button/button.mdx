@@ -1,0 +1,41 @@
+import {
+  Canvas,
+  Controls,
+  Description,
+  Meta,
+  Primary,
+  Stories,
+  Title,
+} from "@storybook/addon-docs/blocks"
+
+import * as ButtonStories from "./button.stories"
+
+<Meta of={ButtonStories} />
+
+<Title />
+
+<Description of={ButtonStories.default.component} />
+
+<Primary />
+
+## Props
+
+Generated from the TypeScript types. Native `<button>` attributes are also accepted and forwarded.
+
+<Controls />
+
+## When not to use it
+
+- **Navigation.** If activating it changes the URL, it is a link. Use `asChild` with your router's
+  link so it keeps prefetching, middle-click and "open in new tab".
+- **Toggles.** A button that stays "on" needs `aria-pressed` or a Switch; a Button with a
+  different colour is not a state.
+- **Destructive without confirmation.** `variant="destructive"` is a colour, not a safeguard.
+  Pair it with a `Dialog` for anything irreversible.
+- **More than one primary per view.** If everything is primary, nothing is.
+
+## The matrix
+
+<Canvas of={ButtonStories.Matrix} />
+
+<Stories includePrimary={false} />

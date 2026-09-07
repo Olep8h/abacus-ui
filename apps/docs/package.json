@@ -1,0 +1,30 @@
+{
+  "name": "@abacus/docs",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build": "storybook build -o storybook-static",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@abacus/ui": "workspace:*",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^10.6.0",
+    "@storybook/addon-docs": "^10.6.0",
+    "@storybook/react-vite": "^10.6.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "storybook": "^10.6.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.3",
+    "vite": "^8.2.2",
+    "storybook-addon-pseudo-states": "^10.6.0",
+    "@types/node": "^24.0.0"
+  }
+}

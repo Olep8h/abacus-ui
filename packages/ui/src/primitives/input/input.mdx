@@ -1,0 +1,43 @@
+import {
+  Canvas,
+  Controls,
+  Description,
+  Meta,
+  Primary,
+  Stories,
+  Title,
+} from "@storybook/addon-docs/blocks"
+
+import * as InputStories from "./input.stories"
+
+<Meta of={InputStories} />
+
+<Title />
+
+<Description of={InputStories.default.component} />
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Field
+
+`Field` owns the label, helper text, error message and the ids that connect them. The control
+inside reads that wiring through `useFieldContext`, so `aria-describedby`, `aria-invalid`,
+`required` and `disabled` are never set by hand.
+
+<Canvas of={InputStories.InField} />
+
+## When not to use it
+
+- **Choosing from a known set.** Use `Select`; free text you then validate against a list is
+  worse for everyone.
+- **Multi-line text.** A textarea is a different control with different keyboard behaviour.
+- **Without a `Field` or an `aria-label`.** Placeholder text is not a label: it disappears on
+  input and fails contrast on purpose.
+- **Search with live results.** That is a combobox (`role="combobox"` + listbox) with its own
+  keyboard contract.
+
+<Stories includePrimary={false} />
